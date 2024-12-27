@@ -1,15 +1,16 @@
 import { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/login/login';
-import Sidenav from '../components/sidenav';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { lightTheme, darkTheme } from '../styles/theme';
 import { AuthProvider } from '../context/authContext';
 import { PrivateRoute } from './privateRoute';
 import { getSavedTheme } from '../utils/storageUtils';
+import Sidenav from '../components/sidenav/sidenav';
 
 const AppRouter = () => {
+  
   const savedTheme = getSavedTheme();
   const [theme, setTheme] = useState(
     savedTheme === 'light' ? lightTheme : darkTheme
