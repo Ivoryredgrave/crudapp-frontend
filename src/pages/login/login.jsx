@@ -12,6 +12,7 @@ import CustomAlert from "../../components/customAlert";
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { SignInContainer, Card } from '../../styles/loginStyles';
+import { Fade } from '@mui/material';
 
 const Footer = React.memo(function Footer(props) {
   return (
@@ -71,72 +72,75 @@ const Login = () => {
         </Helmet>
 
         <CssBaseline enableColorScheme />
-        <SignInContainer direction="column" justifyContent="space-between">
-          <Card variant="outlined">
-            <Typography
-              component="h1"
-              variant="h4"
-              sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
-            >
-              Sign in
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleLogin}
-              noValidate
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                gap: 2,
-              }}
-            >
-              <FormControl>
-                <FormLabel htmlFor="username">Username</FormLabel>
-                <TextField
-                  id="username"
-                  type="text"
-                  name="username"
-                  placeholder="xxxxxx"
-                  autoComplete="username"
-                  autoFocus
-                  required
-                  fullWidth
-                  variant="outlined"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </FormControl>
 
-              <FormControl>
-                <FormLabel htmlFor="password">Password</FormLabel>
-                <TextField
-                  name="password"
-                  placeholder="••••••"
-                  type="password"
-                  id="password"
-                  required
-                  fullWidth
-                  variant="outlined"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </FormControl>
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 2 }}
+        <Fade in timeout={1000}>
+          <SignInContainer direction="column" justifyContent="space-between">
+            <Card variant="outlined">
+              <Typography
+                component="h1"
+                variant="h4"
+                sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
               >
                 Sign in
-              </Button>
+              </Typography>
+              <Box
+                component="form"
+                onSubmit={handleLogin}
+                noValidate
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '100%',
+                  gap: 2,
+                }}
+              >
+                <FormControl>
+                  <FormLabel htmlFor="username">Username</FormLabel>
+                  <TextField
+                    id="username"
+                    type="text"
+                    name="username"
+                    placeholder="xxxxxx"
+                    autoComplete="username"
+                    autoFocus
+                    required
+                    fullWidth
+                    variant="outlined"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </FormControl>
 
-            </Box>
+                <FormControl>
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <TextField
+                    name="password"
+                    placeholder="••••••"
+                    type="password"
+                    id="password"
+                    required
+                    fullWidth
+                    variant="outlined"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </FormControl>
 
-          </Card>
-          <Footer sx={{ mt: 5 }} />
-        </SignInContainer>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 2 }}
+                >
+                  Sign in
+                </Button>
+
+              </Box>
+
+            </Card>
+            <Footer sx={{ mt: 5 }} />
+          </SignInContainer>
+        </Fade>
 
         <CustomAlert
           open={alert.open}

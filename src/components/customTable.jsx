@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
-import { Box, Button, Skeleton } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import PropTypes from 'prop-types';
 import PDFExporter from './pdfExporter';
@@ -123,12 +123,8 @@ const CustomTable = ({
 
   return (
     <>
-      {loading ? (
-        <Skeleton variant="rectangular" width="100%" height={maxHeight} />
-      ) : (
-        <MaterialReactTable table={table} />
-      )}
-    </>
+    {!loading && <MaterialReactTable table={table} />}
+  </>
   );
 };
 
